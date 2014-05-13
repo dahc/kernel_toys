@@ -1,0 +1,24 @@
+mathfs.ko:
+
+		This module registers a filesystem called mathfs that
+	contains a single special file called prime that emits prime numbers
+	when read. The value can be reset by writing a number to the file.
+
+Mounting:
+
+	# mkdir /mathfs
+	# mount -t mathfs mathfs /mathfs
+
+Behavior:
+
+	$ cat /mathfs/prime
+	2
+	$ cat /mathfs/prime
+	3
+	$ cat /mathfs/prime
+	5
+
+	# echo 1000 > /mathfs/prime
+
+	$ cat /mathfs/prime
+	1009
